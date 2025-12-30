@@ -1,0 +1,267 @@
+/* Import Google Font - Karla */
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+/* Basic Reset and Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Karla', sans-serif;
+    background-color: #e0f2f1; /* Light teal background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main Container for the Form */
+.contact-form-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Header Styling */
+.contact-header h2 {
+    font-size: 2.2em;
+    color: #263238; /* Darker text for heading */
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #455a64; /* Slightly darker label text */
+}
+
+/* Input and Textarea Styling */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #b0bec5; /* Light grey border */
+    border-radius: 5px;
+    font-family: 'Karla', sans-serif;
+    font-size: 1em;
+    color: #37474f;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #00796b; /* Teal border on focus */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.2);
+}
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #d32f2f; /* Red border for error */
+    box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 100px;
+}
+
+/* Name Fields Layout */
+.name-fields {
+    display: flex;
+    gap: 20px; /* Space between first and last name fields */
+    margin-bottom: 20px;
+}
+
+.name-fields .form-group {
+    flex: 1; /* Each takes equal width */
+    margin-bottom: 0; /* Remove extra margin from inner form-groups */
+}
+
+/* Radio Button Group Styling */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.radio-group input[type="radio"] {
+    /* Hide default radio button */
+    position: absolute;
+    opacity: 0;
+}
+
+.radio-group .radio-label { /* Changed to .radio-label for specificity */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding-left: 30px; /* Space for custom radio button */
+    font-weight: 400; /* Less bold than main labels */
+    color: #455a64;
+}
+
+.radio-group .radio-label::before { /* Changed to .radio-label for specificity */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #b0bec5;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+.radio-group input[type="radio"]:checked + .radio-label::before { /* Changed to .radio-label for specificity */
+    border-color: #00796b;
+    background-color: #00796b;
+}
+
+.radio-group input[type="radio"]:checked + .radio-label::after { /* Changed to .radio-label for specificity */
+    content: ''; /* Removed checkmark from radio, it's a dot */
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.radio-group.error .radio-label::before {
+    border-color: #d32f2f; /* Red border for error */
+}
+
+
+/* Consent Checkbox Styling (similar to radio for consistency) */
+.consent-checkbox label {
+    position: relative; /* Crucial for positioning the custom checkbox relative to the label */
+    display: flex; /* Ensure the checkbox and text align properly */
+    align-items: center; /* Vertically align the custom checkbox and text */
+    font-weight: 400; /* Consistent with radio button labels */
+    padding-left: 30px;
+}
+
+.consent-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.consent-checkbox label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #b0bec5;
+    border-radius: 3px; /* Square for checkbox */
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+.consent-checkbox input[type="checkbox"]:checked + label::before {
+    border-color: #00796b;
+    background-color: #00796b;
+}
+
+.consent-checkbox input[type="checkbox"]:checked + label::after {
+    content: '✔'; /* Checkmark symbol */
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* Submit Button Styling */
+.submit-button {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #00796b; /* Teal button */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #004d40; /* Darker teal on hover */
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .name-fields {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contact-form-container {
+        padding: 25px;
+    }
+
+    .contact-header h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #d32f2f; /* Red color for error messages */
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+}
+
+/* Success Message Styling */
+.success-message {
+    background-color: #e8f5e9; /* Light green background */
+    color: #2e7d32; /* Dark green text */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 700;
+    display: none; /* Hidden by default */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.success-message p:first-child {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.hidden {
+    display: none !important;
+}
